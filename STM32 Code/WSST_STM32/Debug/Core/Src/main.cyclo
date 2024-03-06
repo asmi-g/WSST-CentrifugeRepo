@@ -1,0 +1,14 @@
+../Core/Src/main.c:76:6:set_setpoint	1
+../Core/Src/main.c:81:6:reset_setpoint	1
+../Core/Src/main.c:91:5:main	1
+../Core/Src/main.c:178:6:SystemClock_Config	3
+../Core/Src/main.c:220:13:MX_ADC1_Init	3
+../Core/Src/main.c:272:13:MX_I2C1_Init	2
+../Core/Src/main.c:306:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:339:13:MX_GPIO_Init	1
+../Core/Src/main.c:374:6:StartDefaultTask	1
+../Core/Src/main.c:393:6:startReadSensors	1
+../Core/Src/main.c:421:6:StartBangBangControl	2
+../Core/Src/main.c:444:6:StartComTask	1
+../Core/Src/main.c:463:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:480:6:Error_Handler	1
