@@ -1,0 +1,2468 @@
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -44.35
+	gyroZ : -44.35
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.94
+	gyroZ : -43.94
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.09
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.94
+	gyroZ : -43.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -45.70
+	gyroZ : -45.70
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.88
+	gyroZ : -43.88
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.88
+	gyroZ : -43.88
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.71
+	gyroZ : 253.71
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.93
+	gyroZ : -43.93
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.94
+	gyroZ : -43.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.93
+	gyroZ : -43.93
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.93
+	gyroZ : -43.93
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.93
+	gyroZ : -43.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.94
+	gyroZ : -43.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.71
+	gyroZ : 253.71
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.94
+	gyroZ : -43.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.78
+	gyroZ : 253.78
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.77
+	gyroZ : 253.77
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.71
+	gyroZ : 253.71
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.78
+	gyroZ : 253.78
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.71
+	gyroZ : 253.71
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.88
+	gyroZ : -43.88
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.74
+	gyroZ : -43.74
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.78
+	gyroZ : 253.78
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.60
+	gyroZ : 253.60
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.78
+	gyroZ : 253.78
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.78
+	gyroZ : 253.78
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.71
+	gyroZ : 253.71
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.71
+	gyroZ : 253.71
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.66
+	gyroZ : 253.66
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.80
+	gyroZ : -43.80
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : -0.02	gyroZ : 253.78
+	gyroZ : 253.78
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.72
+	gyroZ : 253.72
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.82
+	gyroZ : -43.82
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.65
+	gyroZ : 253.65
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : -0.02	gyroZ : -43.87
+	gyroZ : -43.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : -0.02	gyroZ : 253.58
+	gyroZ : 253.58
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : -0.02	gyroZ : -43.76
+	gyroZ : -43.76
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : -26.52
+	gyroZ : -26.52
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -26.46
+	gyroZ : -26.46
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -26.40
+	gyroZ : -26.40
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -26.39
+	gyroZ : -26.39
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -26.46
+	gyroZ : -26.46
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -26.33
+	gyroZ : -26.33
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -26.33
+	gyroZ : -26.33
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -26.39
+	gyroZ : -26.39
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -26.46
+	gyroZ : -26.46
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 271.61
+	gyroZ : 271.61
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : 0.00	gyroZ : -26.51
+	gyroZ : -26.51
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 271.49
+	gyroZ : 271.49
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -26.40
+	gyroZ : -26.40
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : 271.51
+	gyroZ : 271.51
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 271.49
+	gyroZ : 271.49
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 271.49
+	gyroZ : 271.49
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 271.51
+	gyroZ : 271.51
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : 0.00	gyroZ : -26.40
+	gyroZ : -26.40
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -26.40
+	gyroZ : -26.40
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.13
+	gyroZ : -24.13
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.13
+	gyroZ : -24.13
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.07
+	gyroZ : 274.07
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.14
+	gyroZ : -24.14
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.06
+	gyroZ : 274.06
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.14
+	gyroZ : -24.14
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.99
+	gyroZ : 273.99
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.07
+	gyroZ : 274.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.13
+	gyroZ : -24.13
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.99
+	gyroZ : 273.99
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.14
+	gyroZ : -24.14
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.06
+	gyroZ : 274.06
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.06
+	gyroZ : 274.06
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.99
+	gyroZ : 273.99
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.13
+	gyroZ : -24.13
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.14
+	gyroZ : -24.14
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.99
+	gyroZ : 273.99
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.99
+	gyroZ : 273.99
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.06
+	gyroZ : 274.06
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.99
+	gyroZ : 273.99
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.07
+	gyroZ : 274.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.08
+	gyroZ : -24.08
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.06
+	gyroZ : 274.06
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.13
+	gyroZ : -24.13
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.07
+	gyroZ : 274.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.13
+	gyroZ : -24.13
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.02
+	gyroZ : -24.02
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.13
+	gyroZ : -24.13
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.07
+	gyroZ : 274.07
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.07
+gyroX : -0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.07
+	gyroZ : -24.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.93
+	gyroZ : 273.93
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : -24.01
+	gyroZ : -24.01
+temp : 36.51
+accX : 1.58	accY : 0.37	accZ : 0.08
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.94
+	gyroZ : -23.94
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.95
+	gyroZ : 273.95
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.87
+	gyroZ : 273.87
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.06
+gyroX : 0.01	gyroY : 0.00	gyroZ : 273.89
+	gyroZ : 273.89
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.06
+gyroX : -0.01	gyroY : 0.00	gyroZ : 274.07
+	gyroZ : 274.07
+temp : 36.51
+accX : 1.59	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : -23.96
+	gyroZ : -23.96
+temp : 36.51
+accX : 1.56	accY : 0.37	accZ : 0.07
+gyroX : 0.01	gyroY : 0.00	gyroZ : 274.01
+	gyroZ : 274.01
+temp : 36.51
+accX : 1.57	accY : 0.37	accZ : 0.05
+gyroX : -0.01	gyroY : 0.00	gyroZ : 273.99
+	gyroZ : 273.99
