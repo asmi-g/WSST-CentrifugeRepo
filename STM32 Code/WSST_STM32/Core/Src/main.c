@@ -54,6 +54,7 @@ osThreadId readSensorsHandle;
 osThreadId bangBangControlHandle;
 osThreadId communicationTaHandle;
 /* USER CODE BEGIN PV */
+uint32_t potentiometer_val_adc;
 uint32_t temp_setpoint;
 uint32_t thermistor_sensor_adc;
 enum HeaterState heater_state = OFF;
@@ -74,6 +75,7 @@ void StartDefaultTask(void const * argument);
 void startReadSensors(void const * argument);
 void StartBangBangControl(void const * argument);
 void StartComTask(void const * argument);
+void select_adc_channel(int channel);
 
 /* USER CODE BEGIN PFP */
 
@@ -123,6 +125,40 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 }
 /* USER CODE END 0 */
 
+void select_adc_channel(int channel)
+{
+    ADC_ChannelConfTypeDef sConfig = {0};
+    sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
+    switch (channel)
+    {
+        case 1:
+              sConfig.Channel = ADC_CHANNEL_0;
+              sConfig.Rank = 1;
+
+              if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+              {
+                Error_Handler();
+              }
+              break;
+
+        case 2:
+              /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+              */
+              sConfig.Channel = ADC_CHANNEL_1;
+              sConfig.Rank = 1;
+              if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+              {
+                Error_Handler();
+              }
+              break;
+              /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+              */
+
+        default:
+            break;
+    }
+}
+
 /**
   * @brief  The application entry point.
   * @retval int
@@ -156,6 +192,22 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_ADC_Start(&hadc1);
+  while (1)
+    {
+
+            /**for(int i = 0; i< Max_Channels; i++)
+            {
+                select_adc_channel(i+1);
+                HAL_ADC_Start(&hadc1);
+                HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+                adcValue[i] = HAL_ADC_GetValue(&hadc1);
+  //            HAL_ADC_Stop(&hadc1);
+
+            }
+            HAL_Delay(1000);**/
+    }
+
 
   /* USER CODE END 2 */
 
@@ -437,18 +489,11 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5|GPIO_PIN_6, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : Blue_Button_Interrupt_Pin */
-  GPIO_InitStruct.Pin = Blue_Button_Interrupt_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(Blue_Button_Interrupt_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PA5 PA6 */
   GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6;
@@ -456,19 +501,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : IR_Input_Interrupt_Pin */
-  GPIO_InitStruct.Pin = IR_Input_Interrupt_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(IR_Input_Interrupt_GPIO_Port, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
-
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -512,9 +544,12 @@ void startReadSensors(void const * argument)
   int oversample_count = 0;
   uint32_t RPM_sample_time = 0;
   uint32_t RPM_prev_sample_time = 0;
+
   /* Infinite loop */
+  // add switch case here for reading ADC channels
   for(;;)
   {
+	select_adc_channel(0);
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	accumulator += HAL_ADC_GetValue(&hadc1);
@@ -554,11 +589,18 @@ void startReadSensors(void const * argument)
 void StartBangBangControl(void const * argument)
 {
   /* USER CODE BEGIN StartBangBangControl */
-  TIM2->CCR1 = 250; // Divide by 1000 to get PWM Duty Cycle
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+
+
   /* Infinite loop */
   for(;;)
   {
+	select_adc_channel(1);
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	potentiometer_val_adc = HAL_ADC_GetValue(&hadc1);
+	uint32_t Motor_PWM_Val = (potentiometer_val_adc/4); //approximates to 4096
+	TIM2->CCR1 = Motor_PWM_Val; // Divide by 1000 to get PWM Duty Cycle
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 	if(heater_state == PRE_HEAT)
 	{
 		if(thermistor_sensor_adc < temp_setpoint - PRE_HEAT_DEADBAND)

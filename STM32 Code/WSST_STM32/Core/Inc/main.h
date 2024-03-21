@@ -66,12 +66,6 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 #define PRE_HEAT_SETPOINT 3100
-#define Blue_Button_Interrupt_Pin GPIO_PIN_13
-#define Blue_Button_Interrupt_GPIO_Port GPIOC
-#define Blue_Button_Interrupt_EXTI_IRQn EXTI15_10_IRQn
-#define IR_Input_Interrupt_Pin GPIO_PIN_7
-#define IR_Input_Interrupt_GPIO_Port GPIOA
-#define IR_Input_Interrupt_EXTI_IRQn EXTI9_5_IRQn
 
 /* USER CODE BEGIN Private defines */
 #define FULL_HEAT_STOPPOINT 3000
