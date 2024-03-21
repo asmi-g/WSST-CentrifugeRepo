@@ -56,6 +56,11 @@ osThreadId communicationTaHandle;
 /* USER CODE BEGIN PV */
 uint32_t temp_setpoint;
 uint32_t thermistor_sensor_adc;
+enum HeaterState heater_state = OFF;
+char console_buffer[64] = NULL;
+uint32_t IR_RPM_accumulator = 0;
+uint32_t IR_RPM_interrupt_count = 0;
+uint32_t centrifuge_RPM = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -83,7 +88,38 @@ void set_setpoint(uint32_t new_setpoint)
 
 void reset_setpoint(void)
 {
-	temp_setpoint = PRE_HEAT_SETPOINT;
+	temp_setpoint = 0;
+}
+
+void cycle_heater_state(void)
+{
+  switch(heater_state)
+  {
+	case OFF:
+		heater_state = PRE_HEAT;
+		set_setpoint(PRE_HEAT_SETPOINT);
+		break;
+	case PRE_HEAT:
+		heater_state = FULL_HEAT;
+		set_setpoint(FULL_HEAT_STOPPOINT);
+		break;
+	case FULL_HEAT:
+		heater_state = OFF;
+		reset_setpoint();
+		break;
+  }
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  if(GPIO_Pin == Blue_Button_Interrupt_Pin)
+  {
+	  cycle_heater_state();
+  }
+  else if(GPIO_Pin == IR_Input_Interrupt_Pin)
+  {
+	  IR_RPM_interrupt_count++;
+  }
 }
 /* USER CODE END 0 */
 
@@ -401,11 +437,18 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5|GPIO_PIN_6, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : Blue_Button_Interrupt_Pin */
+  GPIO_InitStruct.Pin = Blue_Button_Interrupt_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(Blue_Button_Interrupt_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PA5 PA6 */
   GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6;
@@ -413,6 +456,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : IR_Input_Interrupt_Pin */
+  GPIO_InitStruct.Pin = IR_Input_Interrupt_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(IR_Input_Interrupt_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -432,10 +488,10 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
+  reset_setpoint();
   /* Infinite loop */
   for(;;)
   {
-	reset_setpoint();
     osDelay(10);
   }
   /* USER CODE END 5 */
@@ -451,20 +507,39 @@ void StartDefaultTask(void const * argument)
 void startReadSensors(void const * argument)
 {
   /* USER CODE BEGIN startReadSensors */
+  int accumulator = 0;
+  int oversample_count_max = 10;
+  int oversample_count = 0;
+  uint32_t RPM_sample_time = 0;
+  uint32_t RPM_prev_sample_time = 0;
   /* Infinite loop */
   for(;;)
   {
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	thermistor_sensor_adc = HAL_ADC_GetValue(&hadc1);
+	accumulator += HAL_ADC_GetValue(&hadc1);
 
-	char buf[64];
-	sprintf(buf, "Value of sensor: %d\r\n", thermistor_sensor_adc);
+	oversample_count++;
 
-	// change huartX to your initialized HAL UART peripheral
-	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
+	if(oversample_count == oversample_count_max)
+	{
+		oversample_count = 0;
+		thermistor_sensor_adc = accumulator/oversample_count_max;
+		accumulator = 0;
+		char buf[64];
+		sprintf(buf, "Value of sensor: %ld\r\n", thermistor_sensor_adc);
 
-    osDelay(10);
+		HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
+	}
+
+	IR_RPM_accumulator += IR_RPM_interrupt_count;
+
+	if(IR_RPM_accumulator >= oversample_count_max)
+	{
+
+	}
+
+    osDelay(1);
   }
   /* USER CODE END startReadSensors */
 }
@@ -479,22 +554,43 @@ void startReadSensors(void const * argument)
 void StartBangBangControl(void const * argument)
 {
   /* USER CODE BEGIN StartBangBangControl */
-  TIM2->CCR1 = 250;
+  TIM2->CCR1 = 250; // Divide by 1000 to get PWM Duty Cycle
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
   /* Infinite loop */
   for(;;)
   {
-	if(thermistor_sensor_adc > temp_setpoint)
+	if(heater_state == PRE_HEAT)
 	{
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // D12 on board
+		if(thermistor_sensor_adc < temp_setpoint - PRE_HEAT_DEADBAND)
+		{
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // D12 on board
+		}
+		else
+		{
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+		}
+	}
+	else if(heater_state == FULL_HEAT)
+	{
+		if(thermistor_sensor_adc < FULL_HEAT_STOPPOINT)
+		{
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // D12 on board
+		}
+		else
+		{
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+			heater_state = OFF;
+		}
 	}
 	else
 	{
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 	}
-
 	osDelay(10);
   }
   /* USER CODE END StartBangBangControl */
@@ -513,7 +609,7 @@ void StartComTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(10);
+    osDelay(1000);
   }
   /* USER CODE END StartComTask */
 }
