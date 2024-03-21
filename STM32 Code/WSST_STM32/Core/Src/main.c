@@ -130,7 +130,7 @@ void select_adc_channel(int channel)
     ADC_ChannelConfTypeDef sConfig = {0};
     sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
     switch (channel)
-    {
+    { //switch cases for ADC channels
         case 1:
               sConfig.Channel = ADC_CHANNEL_0;
               sConfig.Rank = 1;
