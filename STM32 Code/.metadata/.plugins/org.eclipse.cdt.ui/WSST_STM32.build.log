@@ -1,15 +1,9 @@
-22:17:27 **** Incremental Build of configuration Debug for project WSST_STM32 ****
+11:06:36 **** Incremental Build of configuration Debug for project WSST_STM32 ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'startReadSensors':
-../Core/Src/main.c:511:49: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  511 |                 sprintf(buf, "Value of sensor: %d\r\n", thermistor_sensor_adc);
-      |                                                ~^       ~~~~~~~~~~~~~~~~~~~~~
-      |                                                 |       |
-      |                                                 int     uint32_t {aka long unsigned int}
-      |                                                %ld
-../Core/Src/main.c:513:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
-  513 |                 HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
+../Core/Src/main.c:596:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  596 |                 HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
       |                                            ^~~
       |                                            |
       |                                            char *
@@ -20,17 +14,30 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:745:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
   745 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                ~~~~~~~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "WSST_STM32.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\relja\Documents\Github\WSST-CentrifugeRepo\STM32 Code\WSST_STM32\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="WSST_STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+../Core/Src/main.c: In function 'Error_Handler':
+../Core/Src/main.c:712:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  712 |   HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
+      |                              ^~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:745:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+  745 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "WSST_STM32.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\relja\Documents\Github\WSST-CentrifugeRepo\STM32 Code\WSST_STM32\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="WSST_STM32.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: WSST_STM32.elf
  
 arm-none-eabi-size  WSST_STM32.elf 
 arm-none-eabi-objdump -h -S WSST_STM32.elf  > "WSST_STM32.list"
    text	   data	    bss	    dec	    hex	filename
-  24312	    104	  18688	  43104	   a860	WSST_STM32.elf
+  39732	    480	  18712	  58924	   e62c	WSST_STM32.elf
 Finished building: default.size.stdout
  
 Finished building: WSST_STM32.list
  
 
-22:17:30 Build Finished. 0 errors, 2 warnings. (took 2s.688ms)
+11:06:37 Build Finished. 0 errors, 2 warnings. (took 1s.164ms)
 
