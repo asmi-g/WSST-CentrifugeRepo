@@ -1,7 +1,7 @@
 # WSST-CentrifugeRepo
 
 #### Software Architecture
-
+![alt text](SoftwareArchitecture.png)
 
 #### Construction Check - 2024/3/8
 * Code for prototype centrifuge is under Arduino Code/WORKS--Tested-MOTOR-DAC-SYSTEM/WORKS--Tested-MOTOR-DAC-SYSTEM.ino
