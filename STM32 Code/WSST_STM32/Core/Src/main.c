@@ -549,7 +549,7 @@ void startReadSensors(void const * argument)
   // add switch case here for reading ADC channels
   for(;;)
   {
-	select_adc_channel(0);
+	select_adc_channel(1);
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	accumulator += HAL_ADC_GetValue(&hadc1);
@@ -594,7 +594,7 @@ void StartBangBangControl(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	select_adc_channel(1);
+	select_adc_channel(2);
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	potentiometer_val_adc = HAL_ADC_GetValue(&hadc1);
