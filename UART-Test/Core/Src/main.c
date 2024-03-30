@@ -40,13 +40,18 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+TIM_HandleTypeDef htim2;
+
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-uint8_t tx_buffer[27] = "Testing testing 1 2\n\r";
+uint8_t tx_buffer[27] = "Testing LED on\n\r";
+uint8_t tx_bufferalt[27] = "Testing LED off \n\r";
+uint8_t tx_bufferfinal[27] = "Testing brightness \n\r";
 uint8_t rx_index;
 uint8_t rx_data[2];
 uint8_t rx_buffer[100];
+int rx_pwmval;
 uint8_t transfer_cplt;
 /* USER CODE END PV */
 
@@ -54,12 +59,51 @@ uint8_t transfer_cplt;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_TIM2_Init(void);
+void TURN_PWM(int val);
+void TEST_LED_BRIGHTNESS(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void TEST_LED_BRIGHTNESS(void){
+	TIM2->CCR1 = 500; // Divide by 1000 to get PWM Duty Cycle
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	rx_pwmval = atoi(rx_buffer);
+	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, rx_pwmval);
+}
+
+void TURN_PWM(int val){
+	TIM2->CCR1 = 500; // Divide by 1000 to get PWM Duty Cycle
+
+	switch(val){
+		case 0:
+			HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1);
+			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0);
+			//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	        break;
+
+	    case 1:
+	    	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	    	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 255);
+	    	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	        break;
+	}
+	//HAL_Delay(10);
+	//HAL_UART_Transmit(&huart2, tx_buffer, 27, 10);
+	//HAL_Delay(1000);
+	/*
+	for(int j=0; j<255; j++){
+		 __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, j);
+		 HAL_Delay(5);
+	}
+	for(int j=255; j>0; j--){
+		 __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, j);
+		 HAL_Delay(5);
+	}*/
+}
 
 /* USER CODE END 0 */
 
@@ -92,6 +136,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_UART_Receive_IT(&huart2, rx_data, 1); //global interrupt when byte recieved
   /* USER CODE END 2 */
@@ -103,6 +148,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
 //	  HAL_UART_Transmit(&huart2, tx_buffer, 27, 10);
 //	  HAL_Delay(1000);
   }
@@ -157,6 +203,55 @@ void SystemClock_Config(void)
 }
 
 /**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 255;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+  HAL_TIM_MspPostInit(&htim2);
+
+}
+
+/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -196,22 +291,11 @@ static void MX_USART2_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : PA5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -242,8 +326,25 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		  transfer_cplt = 1;
 		  HAL_UART_Transmit(&huart2, "\n\r", 2,100);
 		  if(!strcmp(rx_buffer, "LED ON")){ //checking if input buffer indicates to turn LED on
-			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+			  TURN_PWM(1);
+			  HAL_UART_Transmit(&huart2, tx_buffer, 27, 10);
+			  //HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+			  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+			  //ADD IN CODE FOR PWM HERE
 		  }
+		  if(!strcmp(rx_buffer, "LED OFF")){ //checking if input buffer indicates to turn LED on
+		  	 TURN_PWM(0);
+		  	 HAL_UART_Transmit(&huart2, tx_bufferalt, 27, 10);
+		  			  //HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+		  			  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		  			  //ADD IN CODE FOR PWM HERE
+		  }
+		  if (strlen(rx_buffer) <= 3){
+			 TEST_LED_BRIGHTNESS();
+			 HAL_UART_Transmit(&huart2, tx_bufferfinal, 27, 10);
+
+		  }
+
 	  }
 
 	  HAL_UART_Receive_IT(&huart2, rx_data, 1);
