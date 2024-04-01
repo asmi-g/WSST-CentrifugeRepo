@@ -1,11 +1,12 @@
 import serial
 import tkinter as tk
 
-# Open serial port (replace 'COMX' with the actual serial port name)
+# Open serial port at specified baudrate 
 ser = serial.Serial('COM7', baudrate=115200, timeout=1)
 
+# Functions to send input string/values over UART to the STM32
 def turnOnLED():
-    ser.write(b'255\n\r')
+    ser.write(b'255\n\r') 
 
 def turnOffLED(): 
     ser.write(b'00\n\r')
@@ -24,7 +25,7 @@ def readSerialMon():
     response = ser.readline().decode()
     print("Response from STM32:", response)
 
-# creating tkinter window 
+# Creating tkinter window with specified buttons
 root = tk.Tk() 
 root.title('Blink GUI')
 
