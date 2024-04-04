@@ -60,8 +60,6 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
-void TURN_PWM(int val);
-void TEST_LED_BRIGHTNESS(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -71,8 +69,12 @@ void TEST_LED_BRIGHTNESS(void);
 void TEST_LED_BRIGHTNESS(void){
 	TIM2->CCR1 = 500; // Divide by 1000 to get PWM Duty Cycle
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET); //CHECK YOUR PIN CONFIGS
+	// MAYBE TRY DOING THE GPIO WRITE PIN AFTER __HAL_TIM_SET...
+	// ALSO TRY JUST GETTING ONE FEATURE TO WORK INSTEAD OF BOTH ON-OFF, AND NUMBER INPUT
 	rx_pwmval = atoi(rx_buffer);
 	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, rx_pwmval);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
 }
 
 void TURN_PWM(int val){
@@ -81,14 +83,16 @@ void TURN_PWM(int val){
 	switch(val){
 		case 0:
 			HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1);
+			//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
 			__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0);
-			//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
 	        break;
 
 	    case 1:
 	    	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	    	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
 	    	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 255);
-	    	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	    	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
 	        break;
 	}
 	//HAL_Delay(10);
@@ -149,7 +153,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-//	  HAL_UART_Transmit(&huart2, tx_buffer, 27, 10);
+//	  HAL_UART_Transmit(&huart2, rx_buffer, 27, 10);
 //	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
@@ -291,11 +295,22 @@ static void MX_USART2_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PA7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -315,7 +330,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	  if(rx_index == 0){
 		  for(i=0;i<100;i++){
 			  rx_buffer[i]= 0;
-			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
 		  }
 	  }
 	  if (rx_data[0] != 13){
