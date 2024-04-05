@@ -43,8 +43,6 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
-I2C_HandleTypeDef hi2c1;
-
 TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart2;
@@ -53,28 +51,36 @@ osThreadId defaultTaskHandle;
 osThreadId readSensorsHandle;
 osThreadId bangBangControlHandle;
 osThreadId communicationTaHandle;
+osThreadId motorTaskHandle;
 /* USER CODE BEGIN PV */
 uint32_t potentiometer_val_adc;
 uint32_t temp_setpoint;
+uint32_t shrinking_temp_deadband = PRE_HEAT_DEADBAND;
 uint32_t thermistor_sensor_adc;
+float thermistor_temp;
 enum HeaterState heater_state = OFF;
 char console_buffer[64];
 uint32_t IR_RPM_accumulator = 0;
 uint32_t IR_RPM_interrupt_count = 0;
-double centrifuge_RPM = 0;
+float centrifuge_RPM[10];
+uint32_t rpm_time = 0;
+uint32_t prev_rpm_time = 0;
+float rpm_avg;
+
+float MS_TO_S = 1000;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
-static void MX_I2C1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
 void StartDefaultTask(void const * argument);
 void startReadSensors(void const * argument);
 void StartBangBangControl(void const * argument);
 void StartComTask(void const * argument);
+void startMotorTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -90,6 +96,14 @@ void set_setpoint(uint32_t new_setpoint)
 void reset_setpoint(void)
 {
 	temp_setpoint = 0;
+}
+
+float thermistor_adc_to_temp_c(uint32_t thermistor_adc_value)
+{
+	float thermistor_resistance_ohm = (((float) 4096/(float) thermistor_adc_value) - 1) * (float) THERMISTOR_RESISTOR;
+
+	float thermistor_temp = -(30.21*logf(thermistor_resistance_ohm)) + 137.57;
+	return thermistor_temp;
 }
 
 void cycle_heater_state(void)
@@ -119,6 +133,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   }
   else if(GPIO_Pin == GPIO_PIN_7)
   {
+//	  rpm_time = HAL_GetTick();
 	  IR_RPM_interrupt_count++;
   }
 }
@@ -191,7 +206,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
-  MX_I2C1_Init();
   MX_USART2_UART_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
@@ -230,6 +244,10 @@ int main(void)
   /* definition and creation of communicationTa */
   osThreadDef(communicationTa, StartComTask, osPriorityNormal, 0, 128);
   communicationTaHandle = osThreadCreate(osThread(communicationTa), NULL);
+
+  /* definition and creation of motorTask */
+  osThreadDef(motorTask, startMotorTask, osPriorityNormal, 0, 128);
+  motorTaskHandle = osThreadCreate(osThread(motorTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -350,40 +368,6 @@ static void MX_ADC1_Init(void)
 }
 
 /**
-  * @brief I2C1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_I2C1_Init(void)
-{
-
-  /* USER CODE BEGIN I2C1_Init 0 */
-
-  /* USER CODE END I2C1_Init 0 */
-
-  /* USER CODE BEGIN I2C1_Init 1 */
-
-  /* USER CODE END I2C1_Init 1 */
-  hi2c1.Instance = I2C1;
-  hi2c1.Init.ClockSpeed = 100000;
-  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
-  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c1.Init.OwnAddress2 = 0;
-  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN I2C1_Init 2 */
-
-  /* USER CODE END I2C1_Init 2 */
-
-}
-
-/**
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
@@ -479,7 +463,6 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_8, GPIO_PIN_RESET);
@@ -532,7 +515,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(10);
+    osDelay(10000);
   }
   /* USER CODE END 5 */
 }
@@ -552,9 +535,6 @@ void startReadSensors(void const * argument)
   int oversample_count_max = 10;
   int oversample_count = 0;
 
-  uint32_t rpm_time = HAL_GetTick();
-  uint32_t prev_rpm_time = 0;
-
   /* Infinite loop */
   // add switch case here for reading ADC channels
   for(;;)
@@ -571,31 +551,18 @@ void startReadSensors(void const * argument)
 	{
 		oversample_count = 0;
 		thermistor_sensor_adc = accumulator_temp/oversample_count_max;
+		thermistor_temp = thermistor_adc_to_temp_c(thermistor_sensor_adc);
 		potentiometer_val_adc = accumulator_pot/oversample_count_max;
 		accumulator_temp = 0;
 		accumulator_pot = 0;
-//		char buf[64];
-//		sprintf(buf, "Value of sensor: %ld\r\n", thermistor_sensor_adc);
-//		HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
+		char buf[64];
+		sprintf(buf, "ADC: %ld // Temp(C): %f // State: %d\r\n", thermistor_sensor_adc, thermistor_temp, heater_state);
+		HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 //		uint32_t Motor_PWM_Val = (potentiometer_val_adc/4); //approximates to 4096
 //		char buf2[64];
 //		sprintf(buf2, "Value of PWM: %ld\r\n", Motor_PWM_Val);
 //		HAL_UART_Transmit(&huart2, buf2, strlen(buf2), HAL_MAX_DELAY);
 	}
-
-	IR_RPM_accumulator += IR_RPM_interrupt_count;
-
-	if(IR_RPM_accumulator >= oversample_count_max)
-	{
-		rpm_time = HAL_GetTick();
-		double time_delta = (rpm_time - prev_rpm_time)/1000;
-		centrifuge_RPM = (IR_RPM_accumulator/time_delta)*60;
-		IR_RPM_accumulator = 0;
-		char buf[64];
-		sprintf(buf, "Value of sensor: %ld\r\n", (uint32_t) centrifuge_RPM);
-		HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
-	}
-
     osDelay(1);
   }
   /* USER CODE END startReadSensors */
@@ -613,7 +580,7 @@ void StartBangBangControl(void const * argument)
   /* USER CODE BEGIN StartBangBangControl */
   TIM2->CCR1 = 500; // Divide by 1000 to get PWM Duty Cycle
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET); // D7 on board
 
   /* Infinite loop */
   for(;;)
@@ -623,7 +590,7 @@ void StartBangBangControl(void const * argument)
 //	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
 	if(heater_state == PRE_HEAT)
 	{
-		if(thermistor_sensor_adc < temp_setpoint - PRE_HEAT_DEADBAND)
+		if(thermistor_temp < temp_setpoint - PRE_HEAT_DEADBAND)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // D12 on board
@@ -632,11 +599,12 @@ void StartBangBangControl(void const * argument)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+//			shrinking_temp_deadband = shrinking_temp_deadband/2;
 		}
 	}
 	else if(heater_state == FULL_HEAT)
 	{
-		if(thermistor_sensor_adc < FULL_HEAT_STOPPOINT)
+		if(thermistor_temp < FULL_HEAT_STOPPOINT)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // D12 on board
@@ -652,6 +620,7 @@ void StartBangBangControl(void const * argument)
 	{
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+		shrinking_temp_deadband = PRE_HEAT_DEADBAND;
 	}
 	osDelay(100);
   }
@@ -668,12 +637,56 @@ void StartBangBangControl(void const * argument)
 void StartComTask(void const * argument)
 {
   /* USER CODE BEGIN StartComTask */
+//  char buf[64];
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1000);
+//	sprintf(buf, "Temp(C): %f // State: %d // RPM: %f\r\n", thermistor_temp, heater_state, rpm_avg);
+//	HAL_UART_Transmit(&huart2, (uint8_t*) buf, strlen(buf), HAL_MAX_DELAY);
+
+    osDelay(200);
   }
   /* USER CODE END StartComTask */
+}
+
+/* USER CODE BEGIN Header_startMotorTask */
+/**
+* @brief Function implementing the motorTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_startMotorTask */
+void startMotorTask(void const * argument)
+{
+  /* USER CODE BEGIN startMotorTask */
+  int i = 0;
+  /* Infinite loop */
+  for(;;)
+  {
+	rpm_time = HAL_GetTick();
+	float time_delta = ((float) rpm_time - (float) prev_rpm_time)/MS_TO_S;
+	centrifuge_RPM[i] = (IR_RPM_interrupt_count/time_delta)*60;
+	IR_RPM_interrupt_count = 0;
+	prev_rpm_time = rpm_time;
+
+	rpm_avg = 0;
+
+	for(int index = 0; index < 10; index++)
+	{
+		rpm_avg += centrifuge_RPM[index];
+	}
+
+	rpm_avg = (rpm_avg/10);
+
+//	char buf[64];
+//	sprintf(buf, "Value of sensor: %ld\r\n", (uint32_t) rpm_avg);
+//	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
+
+	i = (i+1) % 10;
+
+    osDelay(100);
+  }
+  /* USER CODE END startMotorTask */
 }
 
 /**

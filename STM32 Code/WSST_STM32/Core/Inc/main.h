@@ -33,6 +33,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -65,7 +66,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define PRE_HEAT_SETPOINT 3100
 #define Blue_Button_Interrupt_Pin GPIO_PIN_13
 #define Blue_Button_Interrupt_GPIO_Port GPIOC
 #define Blue_Button_Interrupt_EXTI_IRQn EXTI15_10_IRQn
@@ -74,8 +74,10 @@ void Error_Handler(void);
 #define IR_Input_Interrupt_EXTI_IRQn EXTI9_5_IRQn
 
 /* USER CODE BEGIN Private defines */
-#define FULL_HEAT_STOPPOINT 3000
-#define PRE_HEAT_DEADBAND 50
+#define FULL_HEAT_STOPPOINT 150
+#define PRE_HEAT_SETPOINT 125
+#define PRE_HEAT_DEADBAND 0
+#define THERMISTOR_RESISTOR 4.67
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
