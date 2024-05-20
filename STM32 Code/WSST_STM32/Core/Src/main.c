@@ -55,7 +55,8 @@ osThreadId motorTaskHandle;
 /* USER CODE BEGIN PV */
 uint32_t temp_setpoint;
 enum HeaterState heater_state[HEATER_COUNT];
-int active_heater = 0;
+int active_heater_bank = HEATER_BANK_0;
+uint16_t active_heater_bank_pin;
 
 uint32_t IR_RPM_interrupt_count = 0;
 float centrifuge_RPM[10];
@@ -67,7 +68,6 @@ float MS_TO_S = 1000;
 
 uint16_t adc_values[HEATER_COUNT];
 float temp_values[HEATER_COUNT];
-uint16_t active_heater_bank_pin = HEATER_BANK_1_Pin; // Change this to change active heater
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -125,11 +125,30 @@ void cycle_heater_state(int active_heater)
   }
 }
 
+void select_active_heater_bank(int active_heater_bank)
+{
+	switch(active_heater_bank)
+	{
+		case HEATER_BANK_0:
+			active_heater_bank_pin = HEATER_BANK_0_Pin;
+			break;
+		case HEATER_BANK_1:
+			active_heater_bank_pin = HEATER_BANK_1_Pin;
+			break;
+		case HEATER_BANK_2:
+			active_heater_bank_pin = HEATER_BANK_2_Pin;
+			break;
+		case HEATER_BANK_3:
+			active_heater_bank_pin = HEATER_BANK_3_Pin;
+			break;
+	}
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(GPIO_Pin == GPIO_PIN_13)
   {
-	  cycle_heater_state(active_heater);
+	  cycle_heater_state(active_heater_bank);
   }
   else if(GPIO_Pin == GPIO_PIN_7)
   {
@@ -560,6 +579,7 @@ void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
   reset_setpoint();
+  select_active_heater_bank(active_heater_bank);
   /* Infinite loop */
   for(;;)
   {
@@ -620,9 +640,9 @@ void StartBangBangControl(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	if(heater_state[active_heater] == PRE_HEAT)
+	if(heater_state[active_heater_bank] == PRE_HEAT)
 	{
-		if(temp_values[0] < temp_setpoint - PRE_HEAT_DEADBAND)
+		if(temp_values[active_heater_bank] < temp_setpoint - PRE_HEAT_DEADBAND)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET);
@@ -633,9 +653,9 @@ void StartBangBangControl(void const * argument)
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
 		}
 	}
-	else if(heater_state[active_heater] == FULL_HEAT)
+	else if(heater_state[active_heater_bank] == FULL_HEAT)
 	{
-		if(temp_values[0] < FULL_HEAT_STOPPOINT)
+		if(temp_values[active_heater_bank] < FULL_HEAT_STOPPOINT)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET); // D12 on board
@@ -644,7 +664,7 @@ void StartBangBangControl(void const * argument)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
-			heater_state[active_heater] = OFF;
+			heater_state[active_heater_bank] = OFF;
 		}
 	}
 	else
@@ -672,7 +692,8 @@ void StartComTask(void const * argument)
   for(;;)
   {
 	char buf[128];
-	sprintf(buf, "T0(C): %f // T1(C): %f // State: %d // RPM: %f\r\n", temp_values[0], temp_values[1], heater_state[0], global_rpm_avg);
+	sprintf(buf, "T0(C): %f // T1(C): %f // State: %d // RPM: %f\r\n", temp_values[active_heater_bank],
+			temp_values[1], heater_state[0], global_rpm_avg);
 	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 
     osDelay(200);

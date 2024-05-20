@@ -44,6 +44,14 @@ enum HeaterState
 	PRE_HEAT,
 	FULL_HEAT
 };
+
+enum ActiveHeaterBank
+{
+	HEATER_BANK_0,
+	HEATER_BANK_1,
+	HEATER_BANK_2,
+	HEATER_BANK_3
+};
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
