@@ -53,21 +53,21 @@ osThreadId bangBangControlHandle;
 osThreadId communicationTaHandle;
 osThreadId motorTaskHandle;
 /* USER CODE BEGIN PV */
-uint32_t potentiometer_val_adc;
 uint32_t temp_setpoint;
-uint32_t shrinking_temp_deadband = PRE_HEAT_DEADBAND;
-uint32_t thermistor_sensor_adc;
-float thermistor_temp;
-enum HeaterState heater_state = OFF;
-char console_buffer[64];
-uint32_t IR_RPM_accumulator = 0;
+enum HeaterState heater_state[HEATER_COUNT];
+int active_heater = 0;
+
 uint32_t IR_RPM_interrupt_count = 0;
 float centrifuge_RPM[10];
 uint32_t rpm_time = 0;
 uint32_t prev_rpm_time = 0;
-float rpm_avg;
+float global_rpm_avg;
 
 float MS_TO_S = 1000;
+
+uint16_t adc_values[HEATER_COUNT];
+float temp_values[HEATER_COUNT];
+uint16_t active_heater_bank_pin = HEATER_BANK_1_Pin; // Change this to change active heater
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,7 +98,7 @@ void reset_setpoint(void)
 	temp_setpoint = 0;
 }
 
-float thermistor_adc_to_temp_c(uint32_t thermistor_adc_value)
+float thermistor_adc_to_temp_c(uint16_t thermistor_adc_value)
 {
 	float thermistor_resistance_ohm = (((float) 4096/(float) thermistor_adc_value) - 1) * (float) THERMISTOR_RESISTOR;
 
@@ -106,20 +106,20 @@ float thermistor_adc_to_temp_c(uint32_t thermistor_adc_value)
 	return thermistor_temp;
 }
 
-void cycle_heater_state(void)
+void cycle_heater_state(int active_heater)
 {
-  switch(heater_state)
+  switch(heater_state[active_heater])
   {
 	case OFF:
-		heater_state = PRE_HEAT;
+		heater_state[active_heater] = PRE_HEAT;
 		set_setpoint(PRE_HEAT_SETPOINT);
 		break;
 	case PRE_HEAT:
-		heater_state = FULL_HEAT;
+		heater_state[active_heater] = FULL_HEAT;
 		set_setpoint(FULL_HEAT_STOPPOINT);
 		break;
 	case FULL_HEAT:
-		heater_state = OFF;
+		heater_state[active_heater] = OFF;
 		reset_setpoint();
 		break;
   }
@@ -129,7 +129,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(GPIO_Pin == GPIO_PIN_13)
   {
-	  cycle_heater_state();
+	  cycle_heater_state(active_heater);
   }
   else if(GPIO_Pin == GPIO_PIN_7)
   {
@@ -138,42 +138,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   }
 }
 
-void select_adc_channel(int channel)
+void read_and_accumulate_adc_channels()
 {
-	ADC_ChannelConfTypeDef sConfig = {0};
-	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-	switch (channel)
-	{ //switch cases for ADC channels
-		case 0:
-		  sConfig.Channel = ADC_CHANNEL_0;
-		  sConfig.Rank = 1;
-
-		  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-		  {
-			Error_Handler();
-		  }
-		  break;
-		case 1:
-		  sConfig.Channel = ADC_CHANNEL_1;
-		  sConfig.Rank = 1;
-		  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-		  {
-			Error_Handler();
-		  }
-		  break;
-		default:
-			break;
+	for(int i = 0; i < HEATER_COUNT; i++)
+	{
+		HAL_ADC_Start(&hadc1);
+		HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+		adc_values[i] += HAL_ADC_GetValue(&hadc1);
 	}
-}
 
-uint32_t read_adc_channel()
-{
-	uint32_t return_value = 0;
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	return_value = HAL_ADC_GetValue(&hadc1);
-
-	return return_value;
+	HAL_ADC_Stop(&hadc1);
 }
 /* USER CODE END 0 */
 
@@ -242,7 +216,7 @@ int main(void)
   bangBangControlHandle = osThreadCreate(osThread(bangBangControl), NULL);
 
   /* definition and creation of communicationTa */
-  osThreadDef(communicationTa, StartComTask, osPriorityNormal, 0, 128);
+  osThreadDef(communicationTa, StartComTask, osPriorityNormal, 0, 256);
   communicationTaHandle = osThreadCreate(osThread(communicationTa), NULL);
 
   /* definition and creation of motorTask */
@@ -344,7 +318,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 8;
   hadc1.Init.DMAContinuousRequests = DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -357,6 +331,69 @@ static void MX_ADC1_Init(void)
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_1;
+  sConfig.Rank = 2;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_4;
+  sConfig.Rank = 3;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_8;
+  sConfig.Rank = 4;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_10;
+  sConfig.Rank = 5;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_11;
+  sConfig.Rank = 6;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_12;
+  sConfig.Rank = 7;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_13;
+  sConfig.Rank = 8;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -463,9 +500,13 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_8, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, HEATER_BANK_3_Pin|HEATER_BANK_0_Pin|HEATER_BANK_1_Pin|HEATER_BANK_2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : Blue_Button_Interrupt_Pin */
   GPIO_InitStruct.Pin = Blue_Button_Interrupt_Pin;
@@ -485,6 +526,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(IR_Input_Interrupt_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : HEATER_BANK_3_Pin HEATER_BANK_0_Pin HEATER_BANK_1_Pin HEATER_BANK_2_Pin */
+  GPIO_InitStruct.Pin = HEATER_BANK_3_Pin|HEATER_BANK_0_Pin|HEATER_BANK_1_Pin|HEATER_BANK_2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 5, 0);
@@ -530,8 +578,6 @@ void StartDefaultTask(void const * argument)
 void startReadSensors(void const * argument)
 {
   /* USER CODE BEGIN startReadSensors */
-  int accumulator_temp = 0;
-  int accumulator_pot = 0;
   int oversample_count_max = 10;
   int oversample_count = 0;
 
@@ -539,29 +585,18 @@ void startReadSensors(void const * argument)
   // add switch case here for reading ADC channels
   for(;;)
   {
-//	HAL_ADC_Start(&hadc1);
-//	select_adc_channel(0);
-//	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	accumulator_temp += read_adc_channel();
-	accumulator_pot += read_adc_channel();
-
+	read_and_accumulate_adc_channels();
 	oversample_count++;
 
 	if(oversample_count == oversample_count_max)
 	{
 		oversample_count = 0;
-		thermistor_sensor_adc = accumulator_temp/oversample_count_max;
-		thermistor_temp = thermistor_adc_to_temp_c(thermistor_sensor_adc);
-		potentiometer_val_adc = accumulator_pot/oversample_count_max;
-		accumulator_temp = 0;
-		accumulator_pot = 0;
-		char buf[64];
-		sprintf(buf, "ADC: %ld // Temp(C): %f // State: %d\r\n", thermistor_sensor_adc, thermistor_temp, heater_state);
-		HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
-//		uint32_t Motor_PWM_Val = (potentiometer_val_adc/4); //approximates to 4096
-//		char buf2[64];
-//		sprintf(buf2, "Value of PWM: %ld\r\n", Motor_PWM_Val);
-//		HAL_UART_Transmit(&huart2, buf2, strlen(buf2), HAL_MAX_DELAY);
+		for(int i = 0; i < HEATER_COUNT; i++)
+		{
+			adc_values[i] = adc_values[i]/oversample_count_max;
+			temp_values[i] = thermistor_adc_to_temp_c(adc_values[i]);
+			adc_values[i] = 0;
+		}
 	}
     osDelay(1);
   }
@@ -585,42 +620,37 @@ void StartBangBangControl(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-//	HAL_ADC_Start(&hadc1);
-//	select_adc_channel(1);
-//	HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	if(heater_state == PRE_HEAT)
+	if(heater_state[active_heater] == PRE_HEAT)
 	{
-		if(thermistor_temp < temp_setpoint - PRE_HEAT_DEADBAND)
+		if(temp_values[0] < temp_setpoint - PRE_HEAT_DEADBAND)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // D12 on board
+			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET);
 		}
 		else
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
-//			shrinking_temp_deadband = shrinking_temp_deadband/2;
+			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
 		}
 	}
-	else if(heater_state == FULL_HEAT)
+	else if(heater_state[active_heater] == FULL_HEAT)
 	{
-		if(thermistor_temp < FULL_HEAT_STOPPOINT)
+		if(temp_values[0] < FULL_HEAT_STOPPOINT)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // D12 on board
+			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET); // D12 on board
 		}
 		else
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
-			heater_state = OFF;
+			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
+			heater_state[active_heater] = OFF;
 		}
 	}
 	else
 	{
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
-		shrinking_temp_deadband = PRE_HEAT_DEADBAND;
+		HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
 	}
 	osDelay(100);
   }
@@ -637,12 +667,13 @@ void StartBangBangControl(void const * argument)
 void StartComTask(void const * argument)
 {
   /* USER CODE BEGIN StartComTask */
-//  char buf[64];
+
   /* Infinite loop */
   for(;;)
   {
-//	sprintf(buf, "Temp(C): %f // State: %d // RPM: %f\r\n", thermistor_temp, heater_state, rpm_avg);
-//	HAL_UART_Transmit(&huart2, (uint8_t*) buf, strlen(buf), HAL_MAX_DELAY);
+	char buf[128];
+	sprintf(buf, "T0(C): %f // T1(C): %f // State: %d // RPM: %f\r\n", temp_values[0], temp_values[1], heater_state[0], global_rpm_avg);
+	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 
     osDelay(200);
   }
@@ -660,12 +691,13 @@ void startMotorTask(void const * argument)
 {
   /* USER CODE BEGIN startMotorTask */
   int i = 0;
+  float rpm_avg = 0;
   /* Infinite loop */
   for(;;)
   {
 	rpm_time = HAL_GetTick();
 	float time_delta = ((float) rpm_time - (float) prev_rpm_time)/MS_TO_S;
-	centrifuge_RPM[i] = (IR_RPM_interrupt_count/time_delta)*60;
+	centrifuge_RPM[i] = ((IR_RPM_interrupt_count/time_delta)*60)/8;
 	IR_RPM_interrupt_count = 0;
 	prev_rpm_time = rpm_time;
 
@@ -676,11 +708,7 @@ void startMotorTask(void const * argument)
 		rpm_avg += centrifuge_RPM[index];
 	}
 
-	rpm_avg = (rpm_avg/10);
-
-//	char buf[64];
-//	sprintf(buf, "Value of sensor: %ld\r\n", (uint32_t) rpm_avg);
-//	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
+	global_rpm_avg = (rpm_avg/10);
 
 	i = (i+1) % 10;
 
