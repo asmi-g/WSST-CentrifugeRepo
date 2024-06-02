@@ -52,10 +52,11 @@ osThreadId readSensorsHandle;
 osThreadId bangBangControlHandle;
 osThreadId communicationTaHandle;
 osThreadId motorTaskHandle;
+osThreadId messageHanldlerTaskHandle;
 /* USER CODE BEGIN PV */
 uint32_t temp_setpoint;
 enum HeaterState heater_state[HEATER_COUNT];
-int active_heater_bank = HEATER_BANK_0;
+int active_heater_bank = HEATER_BANK_3;
 uint16_t active_heater_bank_pin;
 
 uint32_t IR_RPM_interrupt_count = 0;
@@ -81,6 +82,7 @@ void startReadSensors(void const * argument);
 void StartBangBangControl(void const * argument);
 void StartComTask(void const * argument);
 void startMotorTask(void const * argument);
+void StartMessageHandlerTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -100,7 +102,7 @@ void reset_setpoint(void)
 
 float thermistor_adc_to_temp_c(uint16_t thermistor_adc_value)
 {
-	float thermistor_resistance_ohm = (((float) 4096/(float) thermistor_adc_value) - 1) * (float) THERMISTOR_RESISTOR;
+	float thermistor_resistance_ohm = (float) THERMISTOR_RESISTOR * ((float) thermistor_adc_value / ((float) 4096 - (float) thermistor_adc_value));
 
 	float thermistor_temp = -(30.21*logf(thermistor_resistance_ohm)) + 137.57;
 	return thermistor_temp;
@@ -168,6 +170,17 @@ void read_and_accumulate_adc_channels()
 
 	HAL_ADC_Stop(&hadc1);
 }
+
+void recieve_uart_messages()
+{
+	//TODO: ADD UART MSSG HANDLING HERE
+}
+
+void handle_uart_messages()
+{
+	//TODO: parse UART messages
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -235,12 +248,16 @@ int main(void)
   bangBangControlHandle = osThreadCreate(osThread(bangBangControl), NULL);
 
   /* definition and creation of communicationTa */
-  osThreadDef(communicationTa, StartComTask, osPriorityNormal, 0, 256);
+  osThreadDef(communicationTa, StartComTask, osPriorityNormal, 0, 1024);
   communicationTaHandle = osThreadCreate(osThread(communicationTa), NULL);
 
   /* definition and creation of motorTask */
   osThreadDef(motorTask, startMotorTask, osPriorityNormal, 0, 128);
   motorTaskHandle = osThreadCreate(osThread(motorTask), NULL);
+
+  /* definition and creation of messageHanldlerTask */
+  osThreadDef(messageHanldlerTask, StartMessageHandlerTask, osPriorityNormal, 0, 256);
+  messageHanldlerTaskHandle = osThreadCreate(osThread(messageHanldlerTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -635,7 +652,7 @@ void StartBangBangControl(void const * argument)
   /* USER CODE BEGIN StartBangBangControl */
   TIM2->CCR1 = 500; // Divide by 1000 to get PWM Duty Cycle
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET); // D7 on board
+//  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET); // D7 on board
 
   /* Infinite loop */
   for(;;)
@@ -691,9 +708,13 @@ void StartComTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	char buf[128];
-	sprintf(buf, "T0(C): %f // T1(C): %f // State: %d // RPM: %f\r\n", temp_values[active_heater_bank],
-			temp_values[1], heater_state[0], global_rpm_avg);
+	recieve_uart_messages();
+
+	char buf[512];
+	sprintf(buf, "T0(C): %f // T1(C): %f // T2(C): %f // T3(C): %f // T4(C): %f // T5(C): %f // "
+			"T6(C): %f // T7(C): %f // State: %d // RPM: %f\r\n", temp_values[0], temp_values[1],
+			temp_values[2], temp_values[3], temp_values[4], temp_values[5], temp_values[6],
+			temp_values[7], heater_state[active_heater_bank], global_rpm_avg);
 	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 
     osDelay(200);
@@ -736,6 +757,26 @@ void startMotorTask(void const * argument)
     osDelay(100);
   }
   /* USER CODE END startMotorTask */
+}
+
+/* USER CODE BEGIN Header_StartMessageHandlerTask */
+/**
+* @brief Function implementing the messageHanldlerTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartMessageHandlerTask */
+void StartMessageHandlerTask(void const * argument)
+{
+  /* USER CODE BEGIN StartMessageHandlerTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	handle_uart_messages();
+
+    osDelay(100);
+  }
+  /* USER CODE END StartMessageHandlerTask */
 }
 
 /**

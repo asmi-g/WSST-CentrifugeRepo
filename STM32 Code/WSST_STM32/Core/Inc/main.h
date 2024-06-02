@@ -90,10 +90,10 @@ void Error_Handler(void);
 #define HEATER_BANK_2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define FULL_HEAT_STOPPOINT 150
+#define FULL_HEAT_STOPPOINT 200
 #define PRE_HEAT_SETPOINT 125
 #define PRE_HEAT_DEADBAND 0
-#define THERMISTOR_RESISTOR 4.67
+#define THERMISTOR_RESISTOR 5.00
 #define HEATER_COUNT 8
 /* USER CODE END Private defines */
 
