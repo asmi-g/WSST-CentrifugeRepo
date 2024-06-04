@@ -2,9 +2,9 @@ import serial
 import tkinter as tk
 
 # Open serial port at specified baudrate 
-ser = serial.Serial('COM7', baudrate=115200, timeout=1)
+ser = serial.Serial('COM12', baudrate=115200, timeout=1)
 
-# Functions to send input string/values over UART to the STM32
+# Functions to GITsend input string/values over UART to the STM32
 def turnOnLED():
     ser.write(b'255\n\r') 
 

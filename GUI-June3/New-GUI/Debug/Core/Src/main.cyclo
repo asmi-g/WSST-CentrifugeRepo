@@ -1,0 +1,9 @@
+../Core/Src/main.c:70:6:TEST_LED_BRIGHTNESS	1
+../Core/Src/main.c:79:6:TURN_PWM	3
+../Core/Src/main.c:116:5:main	1
+../Core/Src/main.c:174:6:SystemClock_Config	3
+../Core/Src/main.c:221:13:MX_TIM2_Init	4
+../Core/Src/main.c:270:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:303:13:MX_GPIO_Init	1
+../Core/Src/main.c:339:6:HAL_UART_RxCpltCallback	8
+../Core/Src/main.c:405:6:Error_Handler	1
