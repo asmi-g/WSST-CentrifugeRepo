@@ -53,10 +53,11 @@ osThreadId bangBangControlHandle;
 osThreadId communicationTaHandle;
 osThreadId motorTaskHandle;
 osThreadId messageHanldlerTaskHandle;
+osMessageQId comQueueHandle;
 /* USER CODE BEGIN PV */
 uint32_t temp_setpoint;
-enum HeaterState heater_state[HEATER_COUNT];
-int active_heater_bank = HEATER_BANK_3;
+enum HeaterState heater_state[HEATER_BANK_COUNT];
+int active_heater_bank = HEATER_BANK_0;
 uint16_t active_heater_bank_pin;
 
 uint32_t IR_RPM_interrupt_count = 0;
@@ -69,6 +70,17 @@ float MS_TO_S = 1000;
 
 uint16_t adc_values[HEATER_COUNT];
 float temp_values[HEATER_COUNT];
+int heater_bank_thermistor_0 = 0;
+int heater_bank_thermistor_1 = 1;
+
+static uint8_t rx_data;
+static char command_queue[COMMAND_QUEUE_SIZE][COMMAND_BUFFER_SIZE];
+static uint8_t command_head = 0;
+static uint8_t command_tail = 0;
+static uint8_t rx_buffer[COMMAND_BUFFER_SIZE];
+static uint8_t rx_index = 0;
+
+int bruh = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,6 +102,25 @@ void StartMessageHandlerTask(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint8_t is_command_queue_full()
+{
+    return ((command_head + 1) % COMMAND_QUEUE_SIZE) == command_tail;
+}
+
+void enqueue_command(const char *command)
+{
+    strncpy(command_queue[command_head], command, COMMAND_BUFFER_SIZE - 1);
+    command_queue[command_head][COMMAND_BUFFER_SIZE - 1] = '\0';
+    command_head = (command_head + 1) % COMMAND_QUEUE_SIZE;
+}
+
+char *dequeue_command(void)
+{
+    char *command = command_queue[command_tail];
+    command_tail = (command_tail + 1) % COMMAND_QUEUE_SIZE;
+    return command;
+}
+
 void set_setpoint(uint32_t new_setpoint)
 {
 	temp_setpoint = new_setpoint;
@@ -133,17 +164,30 @@ void select_active_heater_bank(int active_heater_bank)
 	{
 		case HEATER_BANK_0:
 			active_heater_bank_pin = HEATER_BANK_0_Pin;
+			heater_bank_thermistor_0 = 0;
+			heater_bank_thermistor_1 = 1;
 			break;
 		case HEATER_BANK_1:
 			active_heater_bank_pin = HEATER_BANK_1_Pin;
+			heater_bank_thermistor_0 = 2;
+			heater_bank_thermistor_1 = 3;
 			break;
 		case HEATER_BANK_2:
 			active_heater_bank_pin = HEATER_BANK_2_Pin;
+			heater_bank_thermistor_0 = 4;
+			heater_bank_thermistor_1 = 5;
 			break;
 		case HEATER_BANK_3:
 			active_heater_bank_pin = HEATER_BANK_3_Pin;
+			heater_bank_thermistor_0 = 6;
+			heater_bank_thermistor_1 = 7;
 			break;
 	}
+}
+
+void update_heater_state(int heater_bank_number, int heater_state_in)
+{
+	heater_state[heater_bank_number] = heater_state_in;
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
@@ -159,6 +203,32 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   }
 }
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART2)
+    {
+    	bruh++;
+        if (rx_data == '\n')
+        {
+            rx_buffer[rx_index] = '\0';
+            if (!is_command_queue_full())
+            {
+                enqueue_command((char *)rx_buffer);
+            }
+            rx_index = 0;
+        }
+        else
+        {
+            if (rx_index < COMMAND_BUFFER_SIZE - 1)
+            {
+                rx_buffer[rx_index++] = rx_data;
+            }
+        }
+
+        HAL_UART_Receive_IT(&huart2, &rx_data, 1);
+    }
+}
+
 void read_and_accumulate_adc_channels()
 {
 	for(int i = 0; i < HEATER_COUNT; i++)
@@ -171,16 +241,99 @@ void read_and_accumulate_adc_channels()
 	HAL_ADC_Stop(&hadc1);
 }
 
-void recieve_uart_messages()
+void handle_uart_messages(char *command)
 {
-	//TODO: ADD UART MSSG HANDLING HERE
+	  if (strcmp(command, "CMD1") == 0)
+	  {
+		select_active_heater_bank(HEATER_BANK_0);
+		for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+		{
+			update_heater_state(i, OFF);
+		}
+		update_heater_state(active_heater_bank, PRE_HEAT);
+	  }
+	  else if (strcmp(command, "CMD2") == 0)
+	  {
+			select_active_heater_bank(HEATER_BANK_1);
+			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+			{
+				update_heater_state(i, OFF);
+			}
+			update_heater_state(active_heater_bank, PRE_HEAT);
+	  }
+	  else if (strcmp(command, "CMD3") == 0)
+	  {
+			select_active_heater_bank(HEATER_BANK_2);
+			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+			{
+				update_heater_state(i, OFF);
+			}
+			update_heater_state(active_heater_bank, PRE_HEAT);
+	  }
+	  else if (strcmp(command, "CMD4") == 0)
+	  {
+			select_active_heater_bank(HEATER_BANK_3);
+			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+			{
+				update_heater_state(i, OFF);
+			}
+			update_heater_state(active_heater_bank, PRE_HEAT);
+	  }
+	  else if (strcmp(command, "CMD5") == 0)
+	  {
+			select_active_heater_bank(HEATER_BANK_0);
+			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+			{
+				update_heater_state(i, OFF);
+			}
+			if (heater_state[active_heater_bank] == FULL_HEAT)
+				update_heater_state(active_heater_bank, OFF);
+			else
+				update_heater_state(active_heater_bank, FULL_HEAT);
+	  }
+	  else if (strcmp(command, "CMD6") == 0)
+	  {
+			select_active_heater_bank(HEATER_BANK_1);
+			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+			{
+				update_heater_state(i, OFF);
+			}
+			if (heater_state[active_heater_bank] == FULL_HEAT)
+				update_heater_state(active_heater_bank, OFF);
+			else
+				update_heater_state(active_heater_bank, FULL_HEAT);
+	  }
+	  else if (strcmp(command, "CMD7") == 0)
+	  {
+			select_active_heater_bank(HEATER_BANK_2);
+			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+			{
+				update_heater_state(i, OFF);
+			}
+			if (heater_state[active_heater_bank] == FULL_HEAT)
+				update_heater_state(active_heater_bank, OFF);
+			else
+				update_heater_state(active_heater_bank, FULL_HEAT);
+	  }
+	  else if (strcmp(command, "CMD8") == 0)
+	  {
+			select_active_heater_bank(HEATER_BANK_3);
+			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+			{
+				update_heater_state(i, OFF);
+			}
+			if (heater_state[active_heater_bank] == FULL_HEAT)
+				update_heater_state(active_heater_bank, OFF);
+			else
+				update_heater_state(active_heater_bank, FULL_HEAT);
+	  }
+	  // Add more command handlers as needed
 }
 
-void handle_uart_messages()
+uint8_t is_command_queue_empty()
 {
-	//TODO: parse UART messages
+    return command_head == command_tail;
 }
-
 /* USER CODE END 0 */
 
 /**
@@ -216,6 +369,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Start(&hadc1);
+  HAL_UART_Receive_IT(&huart2, &rx_data, 1);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -229,6 +383,11 @@ int main(void)
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
+
+  /* Create the queue(s) */
+  /* definition and creation of comQueue */
+  osMessageQDef(comQueue, 16, char*);
+  comQueueHandle = osMessageCreate(osMessageQ(comQueue), NULL);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -657,9 +816,10 @@ void StartBangBangControl(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	if(heater_state[active_heater_bank] == PRE_HEAT)
+	if(heater_state[active_heater_bank_pin] == PRE_HEAT)
 	{
-		if(temp_values[active_heater_bank] < temp_setpoint - PRE_HEAT_DEADBAND)
+		if(temp_values[heater_bank_thermistor_0] < PRE_HEAT_SETPOINT
+			&& temp_values[heater_bank_thermistor_1] < PRE_HEAT_SETPOINT)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET);
@@ -670,9 +830,10 @@ void StartBangBangControl(void const * argument)
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
 		}
 	}
-	else if(heater_state[active_heater_bank] == FULL_HEAT)
+	else if(heater_state[active_heater_bank_pin] == FULL_HEAT)
 	{
-		if(temp_values[active_heater_bank] < FULL_HEAT_STOPPOINT)
+		if(temp_values[heater_bank_thermistor_0] < FULL_HEAT_STOPPOINT
+			|| temp_values[heater_bank_thermistor_1] < FULL_HEAT_STOPPOINT)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET); // D12 on board
@@ -681,7 +842,7 @@ void StartBangBangControl(void const * argument)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
-			heater_state[active_heater_bank] = OFF;
+			heater_state[active_heater_bank_pin] = OFF;
 		}
 	}
 	else
@@ -708,13 +869,15 @@ void StartComTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	recieve_uart_messages();
-
+	if (!is_command_queue_empty())
+	{
+		char *command = dequeue_command();
+		handle_uart_messages(command);
+	}
 	char buf[512];
-	sprintf(buf, "T0(C): %f // T1(C): %f // T2(C): %f // T3(C): %f // T4(C): %f // T5(C): %f // "
-			"T6(C): %f // T7(C): %f // State: %d // RPM: %f\r\n", temp_values[0], temp_values[1],
+	sprintf(buf, "%f, %f, %f, %f, %f, %f, %f, %f, %i, %i\n", temp_values[0], temp_values[1],
 			temp_values[2], temp_values[3], temp_values[4], temp_values[5], temp_values[6],
-			temp_values[7], heater_state[active_heater_bank], global_rpm_avg);
+			temp_values[7], active_heater_bank_pin, bruh);
 	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 
     osDelay(200);
@@ -772,9 +935,7 @@ void StartMessageHandlerTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	handle_uart_messages();
-
-    osDelay(100);
+	osDelay(10000);
   }
   /* USER CODE END StartMessageHandlerTask */
 }

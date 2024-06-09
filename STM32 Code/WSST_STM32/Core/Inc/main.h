@@ -34,6 +34,7 @@ extern "C" {
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -95,6 +96,9 @@ void Error_Handler(void);
 #define PRE_HEAT_DEADBAND 0
 #define THERMISTOR_RESISTOR 5.00
 #define HEATER_COUNT 8
+#define HEATER_BANK_COUNT 4
+#define COMMAND_BUFFER_SIZE 25
+#define COMMAND_QUEUE_SIZE 10
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
