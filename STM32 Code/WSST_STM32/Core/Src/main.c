@@ -81,6 +81,7 @@ static uint8_t rx_buffer[COMMAND_BUFFER_SIZE];
 static uint8_t rx_index = 0;
 
 int bruh = 0;
+int other_bruh = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -207,7 +208,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     if (huart->Instance == USART2)
     {
-    	bruh++;
         if (rx_data == '\n')
         {
             rx_buffer[rx_index] = '\0';
@@ -816,21 +816,23 @@ void StartBangBangControl(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	if(heater_state[active_heater_bank_pin] == PRE_HEAT)
+	if(heater_state[active_heater_bank] == PRE_HEAT)
 	{
 		if(temp_values[heater_bank_thermistor_0] < PRE_HEAT_SETPOINT
 			&& temp_values[heater_bank_thermistor_1] < PRE_HEAT_SETPOINT)
 		{
+			bruh++;
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET);
 		}
 		else
 		{
+			other_bruh++;
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
 		}
 	}
-	else if(heater_state[active_heater_bank_pin] == FULL_HEAT)
+	else if(heater_state[active_heater_bank] == FULL_HEAT)
 	{
 		if(temp_values[heater_bank_thermistor_0] < FULL_HEAT_STOPPOINT
 			|| temp_values[heater_bank_thermistor_1] < FULL_HEAT_STOPPOINT)
@@ -842,7 +844,7 @@ void StartBangBangControl(void const * argument)
 		{
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
-			heater_state[active_heater_bank_pin] = OFF;
+			heater_state[active_heater_bank] = OFF;
 		}
 	}
 	else
@@ -877,7 +879,7 @@ void StartComTask(void const * argument)
 	char buf[512];
 	sprintf(buf, "%f, %f, %f, %f, %f, %f, %f, %f, %i, %i\n", temp_values[0], temp_values[1],
 			temp_values[2], temp_values[3], temp_values[4], temp_values[5], temp_values[6],
-			temp_values[7], active_heater_bank_pin, bruh);
+			temp_values[7], heater_state[active_heater_bank], bruh);
 	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 
     osDelay(200);

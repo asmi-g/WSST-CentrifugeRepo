@@ -34,17 +34,28 @@ class App:
 
         self.value_labels = []
         for i in range(10):
+            row = i % 2
+            col = (i // 2) % 5
             label = tk.Label(root, text=f"Temp {i+1}:")
-            label.grid(row=i, column=0, padx=10, pady=5)
+            label.grid(row=row*2, column=col, padx=10, pady=5)
             value = tk.Label(root, text="0")
-            value.grid(row=i, column=1, padx=10, pady=5)
+            value.grid(row=row*2+1, column=col, padx=10, pady=5)
             self.value_labels.append(value)
+            
+        self.signal_lights = []
+        for i in range(4):
+            row = 4
+            col = i
+            canvas = tk.Canvas(root, width=18, height=18)
+            canvas.grid(row=row, column=col, padx=10, pady=5)
+            light = canvas.create_oval(2, 2, 18, 18, fill="gray")
+            self.signal_lights.append((canvas, light))
 
         self.start_button = tk.Button(root, text="Start Reading", command=self.start_reading)
-        self.start_button.grid(row=10, column=0, pady=10)
+        self.start_button.grid(row=7, column=0, pady=10)
 
         self.stop_button = tk.Button(root, text="Stop Reading", command=self.stop_reading)
-        self.stop_button.grid(row=10, column=1, pady=10)
+        self.stop_button.grid(row=7, column=1, pady=10)
 
         self.uart_reader = UARTReader('COM8', 115200)  # Adjust the COM port and baud rate as needed
 
@@ -61,7 +72,9 @@ class App:
         ]
         for i, (text, command) in enumerate(zip(button_texts, button_commands)):
             button = tk.Button(self.root, text=text, command=command)
-            button.grid(row=11 + i // 4, column=i % 4, padx=10, pady=10)
+            row = 5 + i // 4
+            col = i % 4
+            button.grid(row=row, column=col, padx=10, pady=10)
 
     def send_command_1(self):
         self.uart_reader.send_to_uart("CMD1\n")
@@ -86,7 +99,7 @@ class App:
 
     def send_command_8(self):
         self.uart_reader.send_to_uart("CMD8\n")
-
+        
     def start_reading(self):
         print("Starting to read UART data...")
         self.uart_reader.reading = True
@@ -105,14 +118,31 @@ class App:
             print(f"Processing data: {data}")
             self.display_data(data)
         self.root.after(100, self.process_serial_data)
+    
+    def update_signal_light(self, index, value):
+        canvas, light = self.signal_lights[index]
+        if value == "0":
+            print('bruh0')
+            color = "gray"
+        elif value == "1":
+            print('bruh1')
+            color = "yellow"
+        elif value == "2":
+            print('bruh2')
+            color = "red"
+        else:
+            color = "gray"  # Default to gray for any unexpected values
+        canvas.itemconfig(light, fill=color)
 
     def display_data(self, data):
         values = data.split(',')
-        if len(values) == 10:
+        if len(values) == 14:
             for i in range(10):
                 self.value_labels[i].config(text=values[i])
+            for i in range(10, 14):
+                self.update_signal_light((i - 10), values[i])
         else:
-            print("Received data does not contain 10 values.")
+            print("Received data does not contain 10 values.")     
 
 if __name__ == "__main__":
     root = tk.Tk()
