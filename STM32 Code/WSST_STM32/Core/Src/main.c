@@ -159,9 +159,10 @@ void cycle_heater_state(int active_heater)
   }
 }
 
-void select_active_heater_bank(int active_heater_bank)
+void select_active_heater_bank(int active_heater_bank_in)
 {
-	switch(active_heater_bank)
+	active_heater_bank = active_heater_bank_in;
+	switch(active_heater_bank_in)
 	{
 		case HEATER_BANK_0:
 			active_heater_bank_pin = HEATER_BANK_0_Pin;
@@ -246,46 +247,46 @@ void handle_uart_messages(char *command)
 	  if (strcmp(command, "CMD1") == 0)
 	  {
 		select_active_heater_bank(HEATER_BANK_0);
-		for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-		{
-			update_heater_state(i, OFF);
-		}
+//		for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+//		{
+//			update_heater_state(i, OFF);
+//		}
 		update_heater_state(active_heater_bank, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD2") == 0)
 	  {
 			select_active_heater_bank(HEATER_BANK_1);
-			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-			{
-				update_heater_state(i, OFF);
-			}
+//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+//			{
+//				update_heater_state(i, OFF);
+//			}
 			update_heater_state(active_heater_bank, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD3") == 0)
 	  {
 			select_active_heater_bank(HEATER_BANK_2);
-			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-			{
-				update_heater_state(i, OFF);
-			}
+//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+//			{
+//				update_heater_state(i, OFF);
+//			}
 			update_heater_state(active_heater_bank, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD4") == 0)
 	  {
 			select_active_heater_bank(HEATER_BANK_3);
-			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-			{
-				update_heater_state(i, OFF);
-			}
+//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+//			{
+//				update_heater_state(i, OFF);
+//			}
 			update_heater_state(active_heater_bank, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD5") == 0)
 	  {
 			select_active_heater_bank(HEATER_BANK_0);
-			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-			{
-				update_heater_state(i, OFF);
-			}
+//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+//			{
+//				update_heater_state(i, OFF);
+//			}
 			if (heater_state[active_heater_bank] == FULL_HEAT)
 				update_heater_state(active_heater_bank, OFF);
 			else
@@ -294,10 +295,10 @@ void handle_uart_messages(char *command)
 	  else if (strcmp(command, "CMD6") == 0)
 	  {
 			select_active_heater_bank(HEATER_BANK_1);
-			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-			{
-				update_heater_state(i, OFF);
-			}
+//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+//			{
+//				update_heater_state(i, OFF);
+//			}
 			if (heater_state[active_heater_bank] == FULL_HEAT)
 				update_heater_state(active_heater_bank, OFF);
 			else
@@ -306,10 +307,10 @@ void handle_uart_messages(char *command)
 	  else if (strcmp(command, "CMD7") == 0)
 	  {
 			select_active_heater_bank(HEATER_BANK_2);
-			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-			{
-				update_heater_state(i, OFF);
-			}
+//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+//			{
+//				update_heater_state(i, OFF);
+//			}
 			if (heater_state[active_heater_bank] == FULL_HEAT)
 				update_heater_state(active_heater_bank, OFF);
 			else
@@ -318,10 +319,10 @@ void handle_uart_messages(char *command)
 	  else if (strcmp(command, "CMD8") == 0)
 	  {
 			select_active_heater_bank(HEATER_BANK_3);
-			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-			{
-				update_heater_state(i, OFF);
-			}
+//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
+//			{
+//				update_heater_state(i, OFF);
+//			}
 			if (heater_state[active_heater_bank] == FULL_HEAT)
 				update_heater_state(active_heater_bank, OFF);
 			else
@@ -877,9 +878,10 @@ void StartComTask(void const * argument)
 		handle_uart_messages(command);
 	}
 	char buf[512];
-	sprintf(buf, "%f, %f, %f, %f, %f, %f, %f, %f, %i, %i\n", temp_values[0], temp_values[1],
+	sprintf(buf, "%f, %f, %f, %f, %f, %f, %f, %f, %i, %i, %i, %i, %i, %i\n", temp_values[0], temp_values[1],
 			temp_values[2], temp_values[3], temp_values[4], temp_values[5], temp_values[6],
-			temp_values[7], heater_state[active_heater_bank], bruh);
+			temp_values[7], heater_state[active_heater_bank], bruh, heater_state[0],
+			heater_state[1], heater_state[2], heater_state[3]);
 	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 
     osDelay(200);
