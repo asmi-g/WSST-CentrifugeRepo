@@ -121,14 +121,11 @@ class App:
     
     def update_signal_light(self, index, value):
         canvas, light = self.signal_lights[index]
-        if value == "0":
-            print('bruh0')
+        if int(value) == 0:
             color = "gray"
-        elif value == "1":
-            print('bruh1')
+        elif int(value) == 1:
             color = "yellow"
-        elif value == "2":
-            print('bruh2')
+        elif int(value) == 2:
             color = "red"
         else:
             color = "gray"  # Default to gray for any unexpected values
@@ -139,8 +136,8 @@ class App:
         if len(values) == 14:
             for i in range(10):
                 self.value_labels[i].config(text=values[i])
-            for i in range(10, 14):
-                self.update_signal_light((i - 10), values[i])
+            for i in range(4):
+                self.update_signal_light(i, values[i + 10])
         else:
             print("Received data does not contain 10 values.")     
 

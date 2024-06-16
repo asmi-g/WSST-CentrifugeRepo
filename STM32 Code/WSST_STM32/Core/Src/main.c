@@ -166,23 +166,15 @@ void select_active_heater_bank(int active_heater_bank_in)
 	{
 		case HEATER_BANK_0:
 			active_heater_bank_pin = HEATER_BANK_0_Pin;
-			heater_bank_thermistor_0 = 0;
-			heater_bank_thermistor_1 = 1;
 			break;
 		case HEATER_BANK_1:
 			active_heater_bank_pin = HEATER_BANK_1_Pin;
-			heater_bank_thermistor_0 = 2;
-			heater_bank_thermistor_1 = 3;
 			break;
 		case HEATER_BANK_2:
 			active_heater_bank_pin = HEATER_BANK_2_Pin;
-			heater_bank_thermistor_0 = 4;
-			heater_bank_thermistor_1 = 5;
 			break;
 		case HEATER_BANK_3:
 			active_heater_bank_pin = HEATER_BANK_3_Pin;
-			heater_bank_thermistor_0 = 6;
-			heater_bank_thermistor_1 = 7;
 			break;
 	}
 }
@@ -246,87 +238,87 @@ void handle_uart_messages(char *command)
 {
 	  if (strcmp(command, "CMD1") == 0)
 	  {
-		select_active_heater_bank(HEATER_BANK_0);
+//		select_active_heater_bank(HEATER_BANK_0);
 //		for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
 //		{
 //			update_heater_state(i, OFF);
 //		}
-		update_heater_state(active_heater_bank, PRE_HEAT);
+		update_heater_state(HEATER_BANK_0, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD2") == 0)
 	  {
-			select_active_heater_bank(HEATER_BANK_1);
+//			select_active_heater_bank(HEATER_BANK_1);
 //			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
 //			{
 //				update_heater_state(i, OFF);
 //			}
-			update_heater_state(active_heater_bank, PRE_HEAT);
+			update_heater_state(HEATER_BANK_1, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD3") == 0)
 	  {
-			select_active_heater_bank(HEATER_BANK_2);
+//			select_active_heater_bank(HEATER_BANK_2);
 //			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
 //			{
 //				update_heater_state(i, OFF);
 //			}
-			update_heater_state(active_heater_bank, PRE_HEAT);
+			update_heater_state(HEATER_BANK_2, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD4") == 0)
 	  {
-			select_active_heater_bank(HEATER_BANK_3);
+//			select_active_heater_bank(HEATER_BANK_3);
 //			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
 //			{
 //				update_heater_state(i, OFF);
 //			}
-			update_heater_state(active_heater_bank, PRE_HEAT);
+			update_heater_state(HEATER_BANK_3, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD5") == 0)
 	  {
-			select_active_heater_bank(HEATER_BANK_0);
+//			select_active_heater_bank(HEATER_BANK_0);
 //			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
 //			{
 //				update_heater_state(i, OFF);
 //			}
-			if (heater_state[active_heater_bank] == FULL_HEAT)
-				update_heater_state(active_heater_bank, OFF);
+			if (heater_state[HEATER_BANK_0] == FULL_HEAT)
+				update_heater_state(HEATER_BANK_0, OFF);
 			else
-				update_heater_state(active_heater_bank, FULL_HEAT);
+				update_heater_state(HEATER_BANK_0, FULL_HEAT);
 	  }
 	  else if (strcmp(command, "CMD6") == 0)
 	  {
-			select_active_heater_bank(HEATER_BANK_1);
+//			select_active_heater_bank(HEATER_BANK_1);
 //			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
 //			{
 //				update_heater_state(i, OFF);
 //			}
-			if (heater_state[active_heater_bank] == FULL_HEAT)
-				update_heater_state(active_heater_bank, OFF);
+			if (heater_state[HEATER_BANK_1] == FULL_HEAT)
+				update_heater_state(HEATER_BANK_1, OFF);
 			else
-				update_heater_state(active_heater_bank, FULL_HEAT);
+				update_heater_state(HEATER_BANK_1, FULL_HEAT);
 	  }
 	  else if (strcmp(command, "CMD7") == 0)
 	  {
-			select_active_heater_bank(HEATER_BANK_2);
+//			select_active_heater_bank(HEATER_BANK_2);
 //			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
 //			{
 //				update_heater_state(i, OFF);
 //			}
-			if (heater_state[active_heater_bank] == FULL_HEAT)
-				update_heater_state(active_heater_bank, OFF);
+			if (heater_state[HEATER_BANK_2] == FULL_HEAT)
+				update_heater_state(HEATER_BANK_2, OFF);
 			else
-				update_heater_state(active_heater_bank, FULL_HEAT);
+				update_heater_state(HEATER_BANK_2, FULL_HEAT);
 	  }
 	  else if (strcmp(command, "CMD8") == 0)
 	  {
-			select_active_heater_bank(HEATER_BANK_3);
+//			select_active_heater_bank(HEATER_BANK_3);
 //			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
 //			{
 //				update_heater_state(i, OFF);
 //			}
-			if (heater_state[active_heater_bank] == FULL_HEAT)
-				update_heater_state(active_heater_bank, OFF);
+			if (heater_state[HEATER_BANK_3] == FULL_HEAT)
+				update_heater_state(HEATER_BANK_3, OFF);
 			else
-				update_heater_state(active_heater_bank, FULL_HEAT);
+				update_heater_state(HEATER_BANK_3, FULL_HEAT);
 	  }
 	  // Add more command handlers as needed
 }
@@ -817,41 +809,68 @@ void StartBangBangControl(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	if(heater_state[active_heater_bank] == PRE_HEAT)
+	for(int i = 0; i < HEATER_BANK_COUNT; i++)
 	{
-		if(temp_values[heater_bank_thermistor_0] < PRE_HEAT_SETPOINT
-			&& temp_values[heater_bank_thermistor_1] < PRE_HEAT_SETPOINT)
+		switch(i)
 		{
-			bruh++;
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET);
+		case 0:
+			active_heater_bank_pin = HEATER_BANK_0_Pin;
+			heater_bank_thermistor_0 = 0;
+			heater_bank_thermistor_1 = 1;
+			break;
+		case 1:
+			active_heater_bank_pin = HEATER_BANK_1_Pin;
+			heater_bank_thermistor_0 = 2;
+			heater_bank_thermistor_1 = 3;
+			break;
+		case 2:
+			active_heater_bank_pin = HEATER_BANK_2_Pin;
+			heater_bank_thermistor_0 = 4;
+			heater_bank_thermistor_1 = 5;
+			break;
+		case 3:
+			active_heater_bank_pin = HEATER_BANK_3_Pin;
+			heater_bank_thermistor_0 = 6;
+			heater_bank_thermistor_1 = 7;
+			break;
+
+		}
+		if(heater_state[i] == PRE_HEAT)
+		{
+			if(temp_values[heater_bank_thermistor_0] < PRE_HEAT_SETPOINT
+				&& temp_values[heater_bank_thermistor_1] < PRE_HEAT_SETPOINT)
+			{
+				bruh++;
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET);
+			}
+			else
+			{
+				other_bruh++;
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
+			}
+		}
+		else if(heater_state[i] == FULL_HEAT)
+		{
+			if(temp_values[heater_bank_thermistor_0] < FULL_HEAT_STOPPOINT
+				|| temp_values[heater_bank_thermistor_1] < FULL_HEAT_STOPPOINT)
+			{
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET); // D12 on board
+			}
+			else
+			{
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
+				heater_state[i] = OFF;
+			}
 		}
 		else
 		{
-			other_bruh++;
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
 		}
-	}
-	else if(heater_state[active_heater_bank] == FULL_HEAT)
-	{
-		if(temp_values[heater_bank_thermistor_0] < FULL_HEAT_STOPPOINT
-			|| temp_values[heater_bank_thermistor_1] < FULL_HEAT_STOPPOINT)
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_SET); // D12 on board
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
-			heater_state[active_heater_bank] = OFF;
-		}
-	}
-	else
-	{
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOB, active_heater_bank_pin, GPIO_PIN_RESET);
 	}
 	osDelay(100);
   }
