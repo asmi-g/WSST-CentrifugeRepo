@@ -815,23 +815,23 @@ void StartBangBangControl(void const * argument)
 		{
 		case 0:
 			active_heater_bank_pin = HEATER_BANK_0_Pin;
-			heater_bank_thermistor_0 = 0;
-			heater_bank_thermistor_1 = 1;
+			heater_bank_thermistor_0 = 5;
+			heater_bank_thermistor_1 = 4;
 			break;
 		case 1:
 			active_heater_bank_pin = HEATER_BANK_1_Pin;
-			heater_bank_thermistor_0 = 2;
-			heater_bank_thermistor_1 = 3;
+			heater_bank_thermistor_0 = 3;
+			heater_bank_thermistor_1 = 2;
 			break;
 		case 2:
 			active_heater_bank_pin = HEATER_BANK_2_Pin;
-			heater_bank_thermistor_0 = 4;
-			heater_bank_thermistor_1 = 5;
+			heater_bank_thermistor_0 = 1;
+			heater_bank_thermistor_1 = 0;
 			break;
 		case 3:
 			active_heater_bank_pin = HEATER_BANK_3_Pin;
-			heater_bank_thermistor_0 = 6;
-			heater_bank_thermistor_1 = 7;
+			heater_bank_thermistor_0 = 7;
+			heater_bank_thermistor_1 = 6;
 			break;
 
 		}
@@ -897,9 +897,9 @@ void StartComTask(void const * argument)
 		handle_uart_messages(command);
 	}
 	char buf[512];
-	sprintf(buf, "%f, %f, %f, %f, %f, %f, %f, %f, %i, %i, %i, %i, %i, %i\n", temp_values[0], temp_values[1],
-			temp_values[2], temp_values[3], temp_values[4], temp_values[5], temp_values[6],
-			temp_values[7], heater_state[active_heater_bank], bruh, heater_state[0],
+	sprintf(buf, "%f, %f, %f, %f, %f, %f, %f, %f, %i, %i, %i, %i, %i, %i\n", temp_values[4], temp_values[5],
+			temp_values[3], temp_values[2], temp_values[1], temp_values[0], temp_values[7],
+			temp_values[6], heater_state[active_heater_bank], bruh, heater_state[0],
 			heater_state[1], heater_state[2], heater_state[3]);
 	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 

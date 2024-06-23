@@ -81,9 +81,9 @@ void Error_Handler(void);
 #define IR_Input_Interrupt_Pin GPIO_PIN_7
 #define IR_Input_Interrupt_GPIO_Port GPIOA
 #define IR_Input_Interrupt_EXTI_IRQn EXTI9_5_IRQn
-#define HEATER_BANK_3_Pin GPIO_PIN_10
+#define HEATER_BANK_3_Pin GPIO_PIN_3
 #define HEATER_BANK_3_GPIO_Port GPIOB
-#define HEATER_BANK_0_Pin GPIO_PIN_3
+#define HEATER_BANK_0_Pin GPIO_PIN_10
 #define HEATER_BANK_0_GPIO_Port GPIOB
 #define HEATER_BANK_1_Pin GPIO_PIN_4
 #define HEATER_BANK_1_GPIO_Port GPIOB
@@ -91,8 +91,8 @@ void Error_Handler(void);
 #define HEATER_BANK_2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define FULL_HEAT_STOPPOINT 200
-#define PRE_HEAT_SETPOINT 150
+#define FULL_HEAT_STOPPOINT 150
+#define PRE_HEAT_SETPOINT 125
 #define PRE_HEAT_DEADBAND 0
 #define THERMISTOR_RESISTOR 5.00
 #define HEATER_COUNT 8

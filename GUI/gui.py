@@ -57,7 +57,7 @@ class App:
         self.stop_button = tk.Button(root, text="Stop Reading", command=self.stop_reading)
         self.stop_button.grid(row=7, column=1, pady=10)
 
-        self.uart_reader = UARTReader('COM8', 115200)  # Adjust the COM port and baud rate as needed
+        self.uart_reader = UARTReader('COM5', 115200)  # Adjust the COM port and baud rate as needed
 
         self.create_control_buttons()
 
