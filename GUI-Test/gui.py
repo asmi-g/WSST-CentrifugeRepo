@@ -27,6 +27,7 @@ class UARTReader:
         self.serial_port.close()
         print("Serial port closed.")
 
+
 class App:
     def __init__(self, root):
         self.root = root
@@ -52,14 +53,19 @@ class App:
             self.signal_lights.append((canvas, light))
 
         self.start_button = tk.Button(root, text="Start Reading", command=self.start_reading)
-        self.start_button.grid(row=7, column=0, pady=10)
+        self.start_button.grid(row=8, column=0, pady=10)
 
         self.stop_button = tk.Button(root, text="Stop Reading", command=self.stop_reading)
-        self.stop_button.grid(row=7, column=1, pady=10)
+        self.stop_button.grid(row=8, column=1, pady=10)
 
-        self.uart_reader = UARTReader('COM8', 115200)  # Adjust the COM port and baud rate as needed
+        self.uart_reader = UARTReader('COM14', 115200)  # Adjust the COM port and baud rate as needed
 
         self.create_control_buttons()
+
+        self.entry = tk.Entry(root)
+        self.entry.grid(row=7, column=2)
+        self.send_pwm_button = tk.Button(root, text="Send PWM", command=self.send_pwmvalue)
+        self.send_pwm_button.grid(row=7, column=3)
 
     def create_control_buttons(self):
         button_texts = [
@@ -107,6 +113,16 @@ class App:
 
     def motor_off(self):
         self.uart_reader.send_to_uart("CMD10\n")
+    
+    def send_pwmvalue(self):
+        speed = self.entry.get()
+        while len(speed) < 3:
+            speed = '0' + speed
+        if speed.isdigit() and len(speed) == 3:
+            print(speed.encode())
+            self.uart_reader.send_to_uart(f'{speed}\n')
+        else:
+            print("Invalid motor speed value")
         
     def start_reading(self):
         print("Starting to read UART data...")
