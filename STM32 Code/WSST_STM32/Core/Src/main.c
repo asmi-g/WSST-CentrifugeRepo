@@ -44,6 +44,7 @@
 ADC_HandleTypeDef hadc1;
 
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart2;
 
@@ -90,6 +91,7 @@ static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM3_Init(void);
 void StartDefaultTask(void const * argument);
 void startReadSensors(void const * argument);
 void StartBangBangControl(void const * argument);
@@ -238,47 +240,22 @@ void handle_uart_messages(char *command)
 {
 	  if (strcmp(command, "CMD1") == 0)
 	  {
-//		select_active_heater_bank(HEATER_BANK_0);
-//		for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-//		{
-//			update_heater_state(i, OFF);
-//		}
 		update_heater_state(HEATER_BANK_0, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD2") == 0)
 	  {
-//			select_active_heater_bank(HEATER_BANK_1);
-//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-//			{
-//				update_heater_state(i, OFF);
-//			}
 			update_heater_state(HEATER_BANK_1, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD3") == 0)
 	  {
-//			select_active_heater_bank(HEATER_BANK_2);
-//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-//			{
-//				update_heater_state(i, OFF);
-//			}
 			update_heater_state(HEATER_BANK_2, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD4") == 0)
 	  {
-//			select_active_heater_bank(HEATER_BANK_3);
-//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-//			{
-//				update_heater_state(i, OFF);
-//			}
 			update_heater_state(HEATER_BANK_3, PRE_HEAT);
 	  }
 	  else if (strcmp(command, "CMD5") == 0)
 	  {
-//			select_active_heater_bank(HEATER_BANK_0);
-//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-//			{
-//				update_heater_state(i, OFF);
-//			}
 			if (heater_state[HEATER_BANK_0] == FULL_HEAT)
 				update_heater_state(HEATER_BANK_0, OFF);
 			else
@@ -286,11 +263,6 @@ void handle_uart_messages(char *command)
 	  }
 	  else if (strcmp(command, "CMD6") == 0)
 	  {
-//			select_active_heater_bank(HEATER_BANK_1);
-//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-//			{
-//				update_heater_state(i, OFF);
-//			}
 			if (heater_state[HEATER_BANK_1] == FULL_HEAT)
 				update_heater_state(HEATER_BANK_1, OFF);
 			else
@@ -298,11 +270,6 @@ void handle_uart_messages(char *command)
 	  }
 	  else if (strcmp(command, "CMD7") == 0)
 	  {
-//			select_active_heater_bank(HEATER_BANK_2);
-//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-//			{
-//				update_heater_state(i, OFF);
-//			}
 			if (heater_state[HEATER_BANK_2] == FULL_HEAT)
 				update_heater_state(HEATER_BANK_2, OFF);
 			else
@@ -310,15 +277,26 @@ void handle_uart_messages(char *command)
 	  }
 	  else if (strcmp(command, "CMD8") == 0)
 	  {
-//			select_active_heater_bank(HEATER_BANK_3);
-//			for(int i = 0; i != active_heater_bank && i < HEATER_BANK_COUNT; i++)
-//			{
-//				update_heater_state(i, OFF);
-//			}
 			if (heater_state[HEATER_BANK_3] == FULL_HEAT)
 				update_heater_state(HEATER_BANK_3, OFF);
 			else
 				update_heater_state(HEATER_BANK_3, FULL_HEAT);
+	  }
+	  else if (strcmp(command, "CMD9") == 0){
+			TIM3->CCR1 = 500; // Divide by 1000 to get PWM Duty Cycle
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 255);
+	  }
+	  else if (strcmp(command, "CMD10") == 0){
+			TIM3->CCR1 = 500; // Divide by 1000 to get PWM Duty Cycle
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+	  }
+	  else if (strlen(command)<=3){
+			TIM3->CCR1 = 500; // Divide by 1000 to get PWM Duty Cycle
+			HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+			int rx_pwmval = atoi(command);
+			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, rx_pwmval);
 	  }
 	  // Add more command handlers as needed
 }
@@ -360,6 +338,7 @@ int main(void)
   MX_ADC1_Init();
   MX_USART2_UART_Init();
   MX_TIM2_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Start(&hadc1);
   HAL_UART_Receive_IT(&huart2, &rx_data, 1);
@@ -642,6 +621,55 @@ static void MX_TIM2_Init(void)
 }
 
 /**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 0;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 255;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
+  HAL_TIM_MspPostInit(&htim3);
+
+}
+
+/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -696,6 +724,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, HEATER_BANK_3_Pin|HEATER_BANK_0_Pin|HEATER_BANK_1_Pin|HEATER_BANK_2_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8|GPIO_PIN_9, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : Blue_Button_Interrupt_Pin */
   GPIO_InitStruct.Pin = Blue_Button_Interrupt_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
@@ -721,6 +752,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PC8 PC9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 5, 0);
@@ -918,6 +956,8 @@ void StartComTask(void const * argument)
 void startMotorTask(void const * argument)
 {
   /* USER CODE BEGIN startMotorTask */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
   int i = 0;
   float rpm_avg = 0;
   /* Infinite loop */

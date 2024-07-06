@@ -81,9 +81,9 @@ void Error_Handler(void);
 #define IR_Input_Interrupt_Pin GPIO_PIN_7
 #define IR_Input_Interrupt_GPIO_Port GPIOA
 #define IR_Input_Interrupt_EXTI_IRQn EXTI9_5_IRQn
-#define HEATER_BANK_3_Pin GPIO_PIN_3
+#define HEATER_BANK_3_Pin GPIO_PIN_10
 #define HEATER_BANK_3_GPIO_Port GPIOB
-#define HEATER_BANK_0_Pin GPIO_PIN_10
+#define HEATER_BANK_0_Pin GPIO_PIN_3
 #define HEATER_BANK_0_GPIO_Port GPIOB
 #define HEATER_BANK_1_Pin GPIO_PIN_4
 #define HEATER_BANK_1_GPIO_Port GPIOB
