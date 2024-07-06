@@ -2,7 +2,8 @@ import tkinter as tk
 import serial
 import threading
 import queue
-
+import csv
+import time
 class UARTReader:
     def __init__(self, port, baudrate):
         self.serial_port = serial.Serial(port, baudrate, timeout=1)
@@ -11,11 +12,17 @@ class UARTReader:
 
     def read_from_uart(self):
         print("Starting UART read thread...")
-        while self.reading:
-            if self.serial_port.in_waiting > 0:
-                data = self.serial_port.readline().decode('utf-8').strip()
-                print(f"Received data: {data}")
-                self.queue.put(data)
+        timestr = time.strftime("%Y%m%d-%H%M%S")
+        file_name = f"{timestr}.csv"
+        with open(file_name, "w") as f:
+            f.write("Temp 1,Temp 2,Temp 3,Temp 4,Temp 5,Temp 6,Temp 7,Temp 8,Debug,RPM,State 1,State 2,State 3,State 4\n")
+            while self.reading:
+                if self.serial_port.in_waiting > 0:
+                    data = self.serial_port.readline().decode('utf-8').strip()
+                    print(f"Received data: {data}")
+                    self.queue.put(data)
+                    f.write(f"{data}\n")
+            f.close()
         print("Stopped UART read thread...")
 
     def send_to_uart(self, data):
@@ -36,7 +43,12 @@ class App:
         for i in range(10):
             row = i % 2
             col = (i // 2) % 5
-            label = tk.Label(root, text=f"Temp {i+1}:")
+            if (i < 8):
+                label = tk.Label(root, text=f"Temp {i+1}:")
+            elif (i == 8):
+                label = tk.Label(root, text=f"Debug:")
+            elif (i == 9):
+                label = tk.Label(root, text=f"RPM")
             label.grid(row=row*2, column=col, padx=10, pady=5)
             value = tk.Label(root, text="0")
             value.grid(row=row*2+1, column=col, padx=10, pady=5)

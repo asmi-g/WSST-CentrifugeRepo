@@ -63,7 +63,7 @@ uint16_t active_heater_bank_pin;
 
 uint32_t IR_RPM_interrupt_count = 0;
 float centrifuge_RPM[10];
-uint32_t rpm_time = 0;
+uint32_t rpm_time = 1;
 uint32_t prev_rpm_time = 0;
 float global_rpm_avg;
 
@@ -188,11 +188,7 @@ void update_heater_state(int heater_bank_number, int heater_state_in)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  if(GPIO_Pin == GPIO_PIN_13)
-  {
-	  cycle_heater_state(active_heater_bank);
-  }
-  else if(GPIO_Pin == GPIO_PIN_7)
+  if(GPIO_Pin == GPIO_PIN_7)
   {
 //	  rpm_time = HAL_GetTick();
 	  IR_RPM_interrupt_count++;
@@ -935,9 +931,9 @@ void StartComTask(void const * argument)
 		handle_uart_messages(command);
 	}
 	char buf[512];
-	sprintf(buf, "%f, %f, %f, %f, %f, %f, %f, %f, %i, %i, %i, %i, %i, %i\n", temp_values[4], temp_values[5],
+	sprintf(buf, "%f, %f, %f, %f, %f, %f, %f, %f, %i, %f, %i, %i, %i, %i\n", temp_values[4], temp_values[5],
 			temp_values[3], temp_values[2], temp_values[1], temp_values[0], temp_values[7],
-			temp_values[6], heater_state[active_heater_bank], bruh, heater_state[0],
+			temp_values[6], heater_state[active_heater_bank], global_rpm_avg, heater_state[0],
 			heater_state[1], heater_state[2], heater_state[3]);
 	HAL_UART_Transmit(&huart2, buf, strlen(buf), HAL_MAX_DELAY);
 
@@ -965,10 +961,9 @@ void startMotorTask(void const * argument)
   {
 	rpm_time = HAL_GetTick();
 	float time_delta = ((float) rpm_time - (float) prev_rpm_time)/MS_TO_S;
-	centrifuge_RPM[i] = ((IR_RPM_interrupt_count/time_delta)*60)/8;
+	centrifuge_RPM[i] = ((IR_RPM_interrupt_count/time_delta)*60)/32;
 	IR_RPM_interrupt_count = 0;
 	prev_rpm_time = rpm_time;
-
 	rpm_avg = 0;
 
 	for(int index = 0; index < 10; index++)
