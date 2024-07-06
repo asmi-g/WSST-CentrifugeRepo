@@ -81,11 +81,15 @@ class App:
     def create_control_buttons(self):
         button_texts = [
             "Pre-Heat 0", "Pre-Heat 1", "Pre-Heat 2", "Pre-Heat 3",
-            "Full Heat 0", "Full Heat 1", "Full Heat 2", "Full Heat 3"
+            "Full Heat 0", "Full Heat 1", "Full Heat 2", "Full Heat 3",
+            "Motor On", "Motor Off"
+
         ]
         button_commands = [
             self.send_command_1, self.send_command_2, self.send_command_3, self.send_command_4,
-            self.send_command_5, self.send_command_6, self.send_command_7, self.send_command_8
+            self.send_command_5, self.send_command_6, self.send_command_7, self.send_command_8,
+            self.motor_on, self.motor_off
+
         ]
         for i, (text, command) in enumerate(zip(button_texts, button_commands)):
             button = tk.Button(self.root, text=text, command=command)
@@ -116,6 +120,12 @@ class App:
 
     def send_command_8(self):
         self.uart_reader.send_to_uart("CMD8\n")
+        
+    def motor_on(self):
+        self.uart_reader.send_to_uart("CMD9\n")
+
+    def motor_off(self):
+        self.uart_reader.send_to_uart("CMD10\n")
         
     def start_reading(self):
         print("Starting to read UART data...")
